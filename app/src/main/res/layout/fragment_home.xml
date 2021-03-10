@@ -21,14 +21,6 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <com.dongmin.certiapp.CircleView
-            android:id="@+id/circle_view"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/recycler_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
