@@ -8,15 +8,14 @@ import com.dongmin.certiapp.api.MaskApi
 import com.dongmin.certiapp.constant.CERTI_BASE_URL
 import com.dongmin.certiapp.constant.MASK_BASE_URL
 import com.dongmin.certiapp.repository.UserRepository
-import com.dongmin.certiapp.source.local.UserLocalDataSource
+import com.dongmin.certiapp.source.UserDataSource
 import com.dongmin.certiapp.source.local.UserLocalDataSourceImpl
-import com.dongmin.certiapp.source.remote.UserRemoteDataSource
 import com.dongmin.certiapp.source.remote.UserRemoteDataSourceImpl
 
 class CertiApplication : Application() {
     lateinit var userRepository: UserRepository
-    private lateinit var localDataSource: UserLocalDataSource
-    private lateinit var remoteDataSource: UserRemoteDataSource
+    private lateinit var localDataSource: UserDataSource
+    private lateinit var remoteDataSource: UserDataSource
     private lateinit var apiInterface: Api
     private lateinit var maskInterface: MaskApi
     override fun onCreate() {
