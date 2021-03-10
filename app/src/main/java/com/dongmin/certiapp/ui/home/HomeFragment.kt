@@ -17,18 +17,14 @@ import com.dongmin.certiapp.CertiApplication
 import com.dongmin.certiapp.R
 import com.dongmin.certiapp.base.ViewBindingFragment
 import com.dongmin.certiapp.databinding.FragmentHomeBinding
+import org.koin.androidx.viewmodel.compat.ScopeCompat.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : ViewBindingFragment<FragmentHomeBinding>() {
 
     override val layoutId = R.layout.fragment_home
     private lateinit var certiAdapter: CertiAdapter
-    private val homeViewModel: HomeViewModel by viewModels{
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return CertiApplication.userRepo?.let { HomeViewModel(it) } as T
-            }
-        }
-    }
+    private val homeViewModel: HomeViewModel by viewModel()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
