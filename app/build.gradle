@@ -80,4 +80,10 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
 
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+
 }
