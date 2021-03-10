@@ -24,7 +24,8 @@ class CircleView @JvmOverloads constructor(
     private var arcProportion: Float = 0f
     private var mainColorVal: Int = R.color.teal_200
     private var backgroundColorVal: Int = R.color.black
-
+    private var strokeSize = 5
+    private var marginSize = 3f
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (rectangle == null) {
@@ -34,18 +35,34 @@ class CircleView @JvmOverloads constructor(
         // This 2nd arc completes the circle. Remove it if you don't want it
         canvas?.drawArc(rectangle!!, -90f + arcProportion * 360, (1 - arcProportion) * 360, false, backgroundPaint)
     }
-
+    fun init(attrs: AttributeSet?){
+        attrs?.run {
+            context.obtainStyledAttributes(this, R.styleable.CircleView)
+        }?.run {
+            mainColorVal = getColor(R.styleable.CircleView_mainColorVal, mainColorVal)
+            backgroundColorVal = getColor(R.styleable.CircleView_backgroundColorVal, backgroundColorVal)
+            arcProportion = getFloat(R.styleable.CircleView_arcProportion, arcProportion)
+            strokeSize = getInt(R.styleable.CircleView_strokeSize, strokeSize)
+            margin = getFloat(R.styleable.CircleView_marginSize, marginSize)
+            recycle()
+            invalidate()
+        }
+    }
     init {
-
-        mainPaint.isAntiAlias = true
-        mainPaint.color = ContextCompat.getColor(context, mainColorVal)
-        mainPaint.style = Paint.Style.STROKE
-        //mainPaint.strokeWidth = dpToPx(context,5)
-        backgroundPaint.isAntiAlias = true
-        backgroundPaint.color = ContextCompat.getColor(context, backgroundColorVal)
-        backgroundPaint.style = Paint.Style.STROKE
-        //backgroundPaint.strokeWidth = dpToPx(context,5)
-        //margin = dpToPx(context,3) // margin should be >= strokeWidth / 2 (otherwise the arc is cut)
+        init(attrs)
+        mainPaint.run{
+            isAntiAlias = true
+            color = mainColorVal
+            style = Paint.Style.STROKE
+            strokeWidth = dpToPx(context,strokeSize)
+        }
+        backgroundPaint.run{
+            isAntiAlias = true
+            color = backgroundColorVal
+            style = Paint.Style.STROKE
+            strokeWidth = dpToPx(context,strokeSize)
+        }
+        margin = dpToPx(context,marginSize.toInt()) // margin should be >= strokeWidth / 2 (otherwise the arc is cut)
     }
     fun setArcProportion(arcProportion: Float) {
         this.arcProportion = arcProportion
