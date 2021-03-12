@@ -1,5 +1,6 @@
 package com.dongmin.certiapp
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.dongmin.certiapp.api.Api
@@ -12,24 +13,16 @@ import com.dongmin.certiapp.repository.UserRepository
 import com.dongmin.certiapp.source.local.UserLocalDataSourceImpl
 import com.dongmin.certiapp.source.remote.UserRemoteDataSourceImpl
 import com.dongmin.certiapp.ui.home.HomeViewModel
-import com.google.common.truth.Truth.assertThat
-import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
+class ViewModelTest {
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var item: Item
 
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
+    //@get:Rule
+    //var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Before
     fun setUp(){
@@ -42,10 +35,16 @@ class ExampleUnitTest {
     }
     @Test
     fun homeViewModel_isGetData_ReturnTrue(){
+        val title = "jmfldnm"
+        var a = MutableLiveData<Int>()
+
         homeViewModel.getCertiList("mjcDOZkT0XqWULC1L3PAFfxCere4Wq1oXpTJv6jmdF5RmBMPaN6A6Ju112m74zBmsXVsYDW7YJOCH40Q4nmDwg==")
         val targetTitle = "가스기술사"
         val realList = homeViewModel.certiList.getOrAwaitValue()
-        assertThat(realList.get(0).jmfldnm).isEqualTo(targetTitle)
+
+    }
+    @Test
+    fun homeViewModel_isGetData_ReturnFalse(){
     }
 
 }
