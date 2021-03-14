@@ -4,6 +4,7 @@ import com.dongmin.certiapp.data.ResCertification
 import com.dongmin.certiapp.model.StoreInfo
 import com.dongmin.certiapp.source.UserDataSource
 import io.reactivex.rxjava3.core.Single
+import org.koin.core.component.KoinComponent
 
 class UserRepository(
     private val userLocalDataSource: UserDataSource,
