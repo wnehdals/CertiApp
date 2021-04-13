@@ -11,7 +11,7 @@ class UserRemoteDataSourceImpl(
     private val CertiApi: CertiApi,
     private val maskApi: MaskApi
 ) : UserDataSource {
-    override fun getCertiList(serviceKey: String): Single<ResCertification> {
+    override suspend fun getCertiList(serviceKey: String): ResCertification {
         return CertiApi.getCertiList(serviceKey = serviceKey)
     }
 

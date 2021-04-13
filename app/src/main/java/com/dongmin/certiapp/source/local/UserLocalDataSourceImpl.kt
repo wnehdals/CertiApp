@@ -6,7 +6,7 @@ import com.dongmin.certiapp.source.UserDataSource
 import io.reactivex.rxjava3.core.Single
 
 class UserLocalDataSourceImpl : UserDataSource {
-    override fun getCertiList(serviceKey: String): Single<ResCertification> {
+    override suspend fun getCertiList(serviceKey: String): ResCertification {
         TODO("Not yet implemented")
     }
 

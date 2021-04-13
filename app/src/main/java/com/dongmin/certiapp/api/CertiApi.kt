@@ -7,9 +7,9 @@ import retrofit2.http.Query
 
 interface CertiApi {
     @GET("getList")
-    fun getCertiList(
+    suspend fun getCertiList(
         @Query("serviceKey") serviceKey: String,
         @Query("_type") _type: String = "json"
-    ): Single<ResCertification>
+    ): ResCertification
 
 }

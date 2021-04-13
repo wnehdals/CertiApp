@@ -10,7 +10,7 @@ class UserRepository(
     private val userLocalDataSource: UserDataSource,
     private val userRemoteDataSource: UserDataSource
 ) : UserDataSource{
-    override fun getCertiList(serviceKey: String): Single<ResCertification> {
+    override suspend fun getCertiList(serviceKey: String): ResCertification {
         return userRemoteDataSource.getCertiList(serviceKey = serviceKey)
     }
 

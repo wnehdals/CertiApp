@@ -5,6 +5,6 @@ import com.dongmin.certiapp.model.StoreInfo
 import io.reactivex.rxjava3.core.Single
 
 interface UserDataSource {
-    fun getCertiList(serviceKey: String): Single<ResCertification>
+    suspend fun getCertiList(serviceKey: String): ResCertification
     fun getMask() : Single<StoreInfo>
 }
