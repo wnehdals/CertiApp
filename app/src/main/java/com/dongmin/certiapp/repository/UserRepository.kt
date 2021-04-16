@@ -1,16 +1,15 @@
 package com.dongmin.certiapp.repository
 
 import com.dongmin.certiapp.data.ResCertification
-import com.dongmin.certiapp.data.ResponseX
 import com.dongmin.certiapp.model.StoreInfo
-import com.dongmin.certiapp.source.local.UserLocalDataSource
-import com.dongmin.certiapp.source.remote.UserRemoteDataSource
+import com.dongmin.certiapp.source.UserDataSource
 import io.reactivex.rxjava3.core.Single
+import org.koin.core.component.KoinComponent
 
 class UserRepository(
-    private val userLocalDataSource: UserLocalDataSource,
-    private val userRemoteDataSource: UserRemoteDataSource
-) : UserRemoteDataSource, UserLocalDataSource{
+    private val userLocalDataSource: UserDataSource,
+    private val userRemoteDataSource: UserDataSource
+) : UserDataSource{
     override fun getCertiList(serviceKey: String): Single<ResCertification> {
         return userRemoteDataSource.getCertiList(serviceKey = serviceKey)
     }

@@ -1,11 +1,10 @@
-package com.dongmin.certiapp.source.remote
+package com.dongmin.certiapp.source
 
 import com.dongmin.certiapp.data.ResCertification
-import com.dongmin.certiapp.data.ResponseX
 import com.dongmin.certiapp.model.StoreInfo
 import io.reactivex.rxjava3.core.Single
 
-interface UserRemoteDataSource {
+interface UserDataSource {
     fun getCertiList(serviceKey: String): Single<ResCertification>
-    fun getMask() :Single<StoreInfo>
+    fun getMask() : Single<StoreInfo>
 }
