@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.dongmin.certiapp.ui.dashboard.DashboardFragment"
+        android:name="com.dongmin.certiapp.ui.festival.FestivalFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_festival" />
 
     <fragment
         android:id="@+id/navigation_notifications"

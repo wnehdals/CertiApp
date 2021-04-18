@@ -1,6 +1,7 @@
 package com.dongmin.certiapp.repository
 
 import com.dongmin.certiapp.data.ResCertification
+import com.dongmin.certiapp.data.festival.ResFestival
 import com.dongmin.certiapp.model.StoreInfo
 import com.dongmin.certiapp.source.UserDataSource
 import io.reactivex.rxjava3.core.Single
@@ -16,5 +17,9 @@ class UserRepository(
 
     override fun getMask(): Single<StoreInfo> {
         return userRemoteDataSource.getMask()
+    }
+
+    override fun getFestivalList(serviceKey: String, nextPageNumber: Int): Single<ResFestival> {
+        return userRemoteDataSource.getFestivalList(serviceKey = serviceKey, nextPageNumber = nextPageNumber)
     }
 }
