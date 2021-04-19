@@ -19,7 +19,7 @@ class UserRepository(
         return userRemoteDataSource.getMask()
     }
 
-    override fun getFestivalList(serviceKey: String, nextPageNumber: Int): Single<ResFestival> {
+    override suspend fun getFestivalList(serviceKey: String, nextPageNumber: Int): ResFestival {
         return userRemoteDataSource.getFestivalList(serviceKey = serviceKey, nextPageNumber = nextPageNumber)
     }
 }

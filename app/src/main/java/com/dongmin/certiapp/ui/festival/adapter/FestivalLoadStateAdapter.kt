@@ -1,5 +1,6 @@
 package com.dongmin.certiapp.ui.festival.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ class FestivalLoadStateAdapter (private val retry: () -> Unit) : LoadStateAdapte
         holder.binding.loadStateRetry.isVisible = loadState !is LoadState.Loading
         holder.binding.loadStateErrorMessage.isVisible = loadState !is LoadState.Loading
         holder.binding.loadStateProgress.isVisible = loadState is LoadState.Loading
-
+        Log.e("loadadapter", loadState.toString())
         if (loadState is LoadState.Error){
             holder.binding.loadStateErrorMessage.text = loadState.error.localizedMessage
         }

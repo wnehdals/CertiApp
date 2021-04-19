@@ -15,7 +15,7 @@ class UserLocalDataSourceImpl : UserDataSource {
         TODO("Not yet implemented")
     }
 
-    override fun getFestivalList(serviceKey: String, nextPageNumber: Int): Single<ResFestival> {
+    override suspend fun getFestivalList(serviceKey: String, nextPageNumber: Int): ResFestival {
         TODO("Not yet implemented")
     }
 }

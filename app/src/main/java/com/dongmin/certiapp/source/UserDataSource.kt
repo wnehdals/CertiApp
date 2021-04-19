@@ -8,5 +8,5 @@ import io.reactivex.rxjava3.core.Single
 interface UserDataSource {
     fun getCertiList(serviceKey: String): Single<ResCertification>
     fun getMask() : Single<StoreInfo>
-    fun getFestivalList(serviceKey: String, nextPageNumber: Int): Single<ResFestival>
+    suspend fun getFestivalList(serviceKey: String, nextPageNumber: Int): ResFestival
 }

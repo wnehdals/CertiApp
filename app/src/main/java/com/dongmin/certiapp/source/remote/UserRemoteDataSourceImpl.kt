@@ -22,7 +22,7 @@ class UserRemoteDataSourceImpl(
         return maskApi.fetchStoreInfo()
     }
 
-    override fun getFestivalList(serviceKey: String, nextPageNumber: Int): Single<ResFestival> {
+    override suspend fun getFestivalList(serviceKey: String, nextPageNumber: Int): ResFestival {
         return festivalApi.getFestivalList(serviceKey = serviceKey, pageNo = nextPageNumber)
     }
 }

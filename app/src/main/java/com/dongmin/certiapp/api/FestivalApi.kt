@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface FestivalApi {
     @GET("areaBasedList")
-    fun getFestivalList(
+    suspend fun getFestivalList(
         @Query("serviceKey") serviceKey: String,
         @Query("contentTypeId") contentTypeId: String = "15",
         @Query("listYN") listYN: String = "Y",
@@ -18,6 +18,6 @@ interface FestivalApi {
         @Query("numOfRows") numOfRows: String = "20",
         @Query("pageNo") pageNo: Int,
         @Query("_type") _type: String = "json"
-    ): Single<ResFestival>
+    ): ResFestival
 
 }
