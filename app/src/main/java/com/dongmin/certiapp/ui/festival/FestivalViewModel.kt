@@ -16,11 +16,9 @@ import kotlinx.coroutines.flow.Flow
 class FestivalViewModel(private val userRepository: UserRepository): ViewModelBase() {
 
     var currentSearchResult: Flow<PagingData<FestivalItem>>? = null
-    private lateinit var festivalPagingSource: FestivalPagingSource
-    fun setFestivalPagingSource(serviceKey: String): Flow<PagingData<FestivalItem>>{
-        festivalPagingSource = FestivalPagingSource(userRepository, serviceKey)
+    fun getFestivalPagingSource(serviceKey: String): Flow<PagingData<FestivalItem>>{
         val newResult = Pager(PagingConfig(pageSize = 20)){
-            festivalPagingSource
+            FestivalPagingSource(userRepository, serviceKey)
         }.flow
             .cachedIn(viewModelScope)
         currentSearchResult = newResult
